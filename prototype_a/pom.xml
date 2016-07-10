@@ -11,6 +11,7 @@
 
     <modules>
         <module>web-server-proto</module>
+        <module>jpa_entitygraph</module>
     </modules>
 
     <properties>
@@ -171,5 +172,18 @@
 
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>test</id>
+            <properties>
+                <db-user>test</db-user>
+                <db-password>test</db-password>
+                <db-url>jdbc:postgresql://localhost/test</db-url>
+                <web-host>localhost</web-host>
+                <server-port>3457</server-port>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

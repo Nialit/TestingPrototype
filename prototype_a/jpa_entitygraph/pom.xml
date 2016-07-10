@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>prototype_a</artifactId>
+        <groupId>test</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>entity_graph</artifactId>
+    <packaging>pom</packaging>
+
+
+    <properties>
+        <start-class>ru.ddg.befree.social.web.ru.codinghard.prototype.entitygraph.Application</start-class>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- maven-compiler-plugin -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.plugin.war.version>2.6</maven.plugin.war.version>
+        <maven.plugin.enforcer.version>1.4.1</maven.plugin.enforcer.version>
+        <version.compiler.plugin>3.2</version.compiler.plugin>
+        <!-- dependencies -->
+        <spring.boot.version>1.3.3.RELEASE</spring.boot.version>
+        <spring.security.version>4.0.4.RELEASE</spring.security.version>
+        <!--TODO: change to release version when one is available. Needed because contains important fix-->
+        <spring.data.jpa.version>1.10.2.RELEASE</spring.data.jpa.version>
+        <logback.version>1.1.7</logback.version>
+        <lombok.version>1.16.8</lombok.version>
+        <hibernate.version>5.1.0.Final</hibernate.version>
+        <guava.version>17.0</guava.version>
+        <postgres.version>9.4-1205-jdbc41</postgres.version>
+        <hikari.version>2.4.3</hikari.version>
+        <flywaydb.version>3.2.1</flywaydb.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
+        <apache.commons.fileupload.version>1.3.1</apache.commons.fileupload.version>
+        <commons-io.version>2.4</commons-io.version>
+        <apache.tika.version>1.10</apache.tika.version>
+        <hibernate.javax.version>1.0.0.Final</hibernate.javax.version>
+        <junit.version>4.12</junit.version>
+        <jackson.version>2.6.3</jackson.version>
+        <thumbnailator.version>0.4.8</thumbnailator.version>
+    </properties>
+
+    <modules>
+        <module>dal</module>
+        <module>service</module>
+    </modules>
+
+    <dependencies>
+        <!--Other-->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.2</version>
+            </plugin>
+            <!-- Required for lombok -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.compiler.plugin}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+</project>
